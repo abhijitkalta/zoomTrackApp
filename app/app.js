@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-var zoomTrackerApp = angular.module('zoomTrackerApp',['ngRoute','ngResource','angular-cache', 'uiGmapgoogle-maps'])
+var zoomTrackerApp = angular.module('zoomTrackerApp',['ngRoute','ngResource','angular-cache'])
 
 .config(['$routeProvider', function($routeProvider) {
 
@@ -11,4 +11,7 @@ var zoomTrackerApp = angular.module('zoomTrackerApp',['ngRoute','ngResource','an
 
     });
   $routeProvider.otherwise({redirectTo: '/parcelDetails'});
-}]);
+
+
+
+}])

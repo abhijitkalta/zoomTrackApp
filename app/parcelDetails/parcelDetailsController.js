@@ -19,6 +19,8 @@ zoomTrackerApp.controller('parcelDetailsController',
     $scope.parcels = event.parcels;
     //to set deafault parcel
     $scope.parcelDetail = $scope.parcels[0];
+    var latlon = $scope.parcelDetail.live_location.latitude + "," + $scope.parcelDetail.live_location.longitude;
+    $scope.img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=200x200&sensor=false";
     }, function(event) {
     alert("Failed");
     });
@@ -47,7 +49,9 @@ zoomTrackerApp.controller('parcelDetailsController',
 
     $scope.getParcelDetails = function(parcel){
       $scope.parcelDetail = parcel;
-      $scope.map = { center: { latitude: parcelDetail.live_locations.latitude, longitude:  parcelDetail.live_locations.longitude}, zoom: 8 };
+      var latlon = $scope.parcelDetail.live_location.latitude + "," + $scope.parcelDetail.live_location.longitude;
 
+      $scope.img_url = "http://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=200x200&sensor=false";
     }
+
 });
