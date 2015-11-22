@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="zoomTrackerApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="zoomTrackerApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="zoomTrackerApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="zoomTrackerApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Zoom Tracker App</title>
+  <meta name="description" content="Zoom Tracker App">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="components/bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="components/bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="components/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="components/bower_components/font-awesome/css/font-awesome.min.css">
+  <script src="components/bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body ng-controller="parcelDetailsController">
+
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+<div class="container">
+    <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Zoom Trackr <small> - live tracking made easy </small> </a>
+
+      </div>
+      <div style="float: right;">
+        <div class="panel panel-default" style="margin-top:5px">
+          <div class="panel-body">
+            Api Hits : {{apiHits}} |
+            Total Number Of Parcels : {{parcels.length}}
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>
+  </div>
+<div class="container"
+  <div ng-view></div>
+</div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <script src="components/bower_components/jquery/dist/jquery.js"></script>
+  <script src="components/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="components/bower_components/angular/angular.js"></script>
+  <script src="components/bower_components/angular-route/angular-route.js"></script>
+  <script src="components/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="components/bower_components/angular-cache/dist/angular-cache.js"></script>
+  <script src="components/bower_components/lodash/lodash.js"></script>
+  <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+  <script src="components/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
+
+
+  <script src="app.js"></script>
+  <script src="parceldetails/parcelDetailsController.js"></script>
+  <script src="components/version/myCache.js"></script>
+  <script src="components/version/parcelData.js"></script>
+</body>
+</html>

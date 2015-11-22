@@ -1,0 +1,82 @@
+<br />
+<label>Search: <input ng-model="searchText"></label>
+<div class="dropdown">
+        <h4>Order By :</h4>
+        <select ng-model="sortorder">
+        <option value="name">Name</option>
+        <option value="weight">Weight</option>
+        </select>
+</div>
+<br />
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-4">
+        <div class="row" ng-repeat="parcels in parcels| filter:searchText |orderBy: sortorder">
+        <a href="#" ng-click="getParcelDetails(parcels)">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div>{{parcels.name}}</div>
+            <div style="display: inline-block"><i class="fa fa-inr"></i>{{parcels.price}}</div>
+            <div style="float: right"><i class="fa fa-arrow-circle-right"></i></div>
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="container" >
+        <div class="row">
+          <div class="col-md-2">
+            <div class="row">
+              <img ng-src="{{parcelDetail.image}}" alt="Parcel" height="100px" width="100px" style="border: 1px solid; box-shadow: 2px 2px 1px #339999"/>
+            </div>
+            <div class="row">
+              <br />
+              <div>ETA</div>
+              {{parcelDetail.date | date:'medium'}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">{{parcelDetail.name}}</div>
+              <div class="panel-body">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-3"><i class="fa fa-shopping-cart"></i>
+                      {{parcelDetail.type}}</div>
+                    <div class="col-md-3"><i class="fa fa-inr"></i>
+                      {{parcelDetail.price}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3"><i class="fa fa-database"></i>
+                      {{parcelDetail.weight}}</div>
+                    <div class="col-md-3"><span style="font-weight:bold">Q</span>
+                      {{parcelDetail.quantity}}</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3"><i class="fa fa-phone"></i>
+                      {{parcelDetail.phone}}</div>
+                    <div class="col-md-3"><div style="background-color: {{parcelDetail.color}}; width: 20px; height: 20px;display : inline-block; border: 1px solid black"></div>
+                    <span style="font-weight: bold">Color</span>
+                  </div>
+                </div>
+                <div class="row">
+                  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <a href="" class="btn btn-info btn-lg" ng-click="addToCache(parcelDetail.name)">
+                  <span class="glyphicon glyphicon-thumbs-up"></span> Likes {{getFromCache(parcelDetail.name)}}
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  </div>
